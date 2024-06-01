@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SearchFragment">
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+
+        android:id="@+id/sear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="55dp"
+            android:padding="15dp"
+            android:gravity="center"
+            android:text="城市天气查询"
+            android:textColor="@color/black"
+            android:textSize="32dp" />
+
+        <EditText
+            android:background="@drawable/editview_cs"
+            android:textColor="@color/black"
+            android:id="@+id/search_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="查询格式：省份 市/区（如“北京 海淀”）"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:padding="15dp"
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="15dp"
+            android:textSize="13dp"
+            android:hint="若输入地区超过2个，只有前2个有效"
+            />
+
+        <Button
+            android:background="@drawable/button_cs"
+            android:id="@+id/search_button"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="查询"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingTop="30dp"
+            android:text="热门城市"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+
+        android:layout_below="@+id/sear"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="255dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        >
+
+        <Button
+            android:background="@drawable/button_cs0"
+            android:id="@+id/beijing"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="北京"
+            android:textSize="20dp" />
+
+        <Button
+            android:background="@drawable/button_cs0"
+            android:id="@+id/shanghai"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_toRightOf="@id/beijing"
+            android:layout_marginLeft="15dp"
+            android:text="上海"
+            android:textSize="20dp" />
+
+        <Button
+            android:background="@drawable/button_cs0"
+            android:id="@+id/guangzhou"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_toRightOf="@id/shanghai"
+            android:layout_marginLeft="15dp"
+
+            android:text="广州"
+            android:textSize="20dp" />
+
+        <Button
+            android:background="@drawable/button_cs0"
+            android:id="@+id/tianjin"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/beijing"
+            android:layout_marginTop="10dp"
+            android:text="天津"
+            android:textSize="20dp" />
+
+        <Button
+            android:background="@drawable/button_cs0"
+            android:id="@+id/chengdu"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/shanghai"
+            android:layout_toRightOf="@id/tianjin"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:text="成都"
+            android:textSize="20dp" />
+
+        <Button
+            android:background="@drawable/button_cs0"
+            android:id="@+id/fuzhou"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/guangzhou"
+            android:layout_toRightOf="@id/chengdu"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:text="福州"
+            android:textSize="20dp" />
+
+        <Button
+            android:background="@drawable/button_cs0"
+            android:id="@+id/changsha"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/tianjin"
+            android:layout_marginTop="10dp"
+            android:text="长沙"
+            android:textSize="20dp" />
+
+        <Button
+            android:background="@drawable/button_cs0"
+            android:id="@+id/haerbin"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/chengdu"
+            android:layout_toRightOf="@id/changsha"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:text="哈尔滨"
+            android:textSize="20dp" />
+
+        <Button
+            android:background="@drawable/button_cs0"
+            android:id="@+id/hangzhou"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/fuzhou"
+            android:layout_toRightOf="@id/haerbin"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:text="杭州"
+            android:textSize="20dp" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

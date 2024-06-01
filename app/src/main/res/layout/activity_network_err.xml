@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".NetworkErrActivity" >
+
+    <TextView
+        android:textColor="@color/black"
+        android:id="@+id/network_err"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="网络未连接"
+        android:textSize="50sp"
+        android:gravity="center"
+        android:layout_marginTop="200sp"/>
+
+    <TextView
+        android:id="@+id/network_tip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="请检查网络设置后重试"
+        android:textSize="20sp"
+        android:gravity="center"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/app_tip"
+        android:layout_marginBottom="40sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Swufe天气"
+        android:textSize="10sp" />
+</LinearLayout>

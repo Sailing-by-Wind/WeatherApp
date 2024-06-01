@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="light_black">#9F000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="test">#1B707070</color>
+    <color name="best_air">#02AF0A</color>
+    <color name="good_air">#0745FF</color>
+    <color name="bad_air">#FA5902</color>
+    <color name="worse_air">#F45236</color>
+    <color name="worst_air">#FF0000</color>
+    <color name="search_background">#279C9C9C</color>
+</resources>

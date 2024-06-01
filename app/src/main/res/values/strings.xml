@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Swufe天气</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_city_fragment">Hello city fragment</string>
+    <string name="hello_search_fragment">Hello search fragment</string>
+    <string name="hello_individual_fragment">Swufe天气 版权所有\n商务合作请联系\nWeChat：s1206927026\nPhone：18359382733</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="err_city">未能获取城市</string>
+    <string name="err_tem">无温度</string>
+    <string name="err_air">未能获取空气质量</string>
+    <string name="err_wea">未能获取天气信息</string>
+    <string name="hint_24h">逐小时预报（未来24小时）</string>
+</resources>

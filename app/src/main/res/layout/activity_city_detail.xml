@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background1"
+    tools:context=".CityFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ImageView
+        android:id="@+id/background1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/cityName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:hint="@string/err_city"
+                android:padding="15dp"
+                android:textColor="@color/black"
+                android:textSize="40dp" />
+
+            <TextView
+                android:id="@+id/currTem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/err_tem"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textColor="@color/black"
+                android:textSize="79dp" />
+
+            <TextView
+                android:id="@+id/wea"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:hint="@string/err_wea"
+                android:paddingLeft="15dp"
+                android:textColor="@color/light_black"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/airQua"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/err_air"
+                android:padding="15dp"
+                android:textSize="20dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/textview_cs"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/wea_24h"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_24h"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="5dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/hours"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:orientation="horizontal"
+                    android:padding="15sp">
+
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.example.weatherapp.TitleSubtitleView
+                        android:id="@+id/uv"
+                        android:layout_width="150dp"
+                        android:layout_height="70dp"
+                        android:layout_marginRight="25dp"
+                        android:background="@drawable/textview_cs" />
+
+                    <com.example.weatherapp.TitleSubtitleView
+                        android:id="@+id/humidity"
+                        android:layout_width="150dp"
+                        android:layout_height="70dp"
+                        android:layout_marginLeft="25dp"
+                        android:background="@drawable/textview_cs" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.example.weatherapp.TitleSubtitleView
+                        android:id="@+id/wind_direction"
+                        android:layout_width="150dp"
+                        android:layout_height="70dp"
+                        android:layout_marginRight="25dp"
+                        android:background="@drawable/textview_cs" />
+
+                    <com.example.weatherapp.TitleSubtitleView
+                        android:id="@+id/pm25"
+                        android:layout_width="150dp"
+                        android:layout_height="70dp"
+                        android:layout_marginLeft="25dp"
+                        android:background="@drawable/textview_cs" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.example.weatherapp.TitleSubtitleView
+                        android:id="@+id/sunrise"
+                        android:layout_width="150dp"
+                        android:layout_height="70dp"
+                        android:layout_marginRight="25dp"
+                        android:background="@drawable/textview_cs" />
+
+                    <com.example.weatherapp.TitleSubtitleView
+                        android:id="@+id/sunset"
+                        android:layout_width="150dp"
+                        android:layout_height="70dp"
+                        android:layout_marginLeft="25dp"
+                        android:background="@drawable/textview_cs" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+
+</FrameLayout>
