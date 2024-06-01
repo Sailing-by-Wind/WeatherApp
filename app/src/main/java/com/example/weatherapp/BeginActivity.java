@@ -39,7 +39,7 @@ public class BeginActivity extends AppCompatActivity {
             // 显示提示框
             AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
             dialogBuilder.setTitle("更新日志");
-            dialogBuilder.setMessage("欢迎使用Swufe天气v1.5.3！本次更新内容如下：\n1、修复部分机型页面展示不全的问题。\n2、新增更多的热门城市快捷选项。\n3、首次启动将展示更新日志。");
+            dialogBuilder.setMessage("欢迎使用Swufe天气v1.5.4！本次更新内容如下：\n优化部分页面的横屏展示效果。");
             dialogBuilder.setPositiveButton("我知道了", null);
             dialogBuilder.show();
 
