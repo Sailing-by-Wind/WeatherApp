@@ -3,21 +3,15 @@ package com.example.weatherapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
@@ -75,10 +69,26 @@ public class IndividualFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         View rootView = inflater.inflate(R.layout.fragment_individual, container, false);
+        // 在 Fragment 的 onCreateView 方法中设置背景图片（可能造成卡顿）
+//        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+//        String backgroundImageBase64 = sharedPreferences.getString("backgroundImageBase64", "");
+//
+//        Bitmap backgroundImageBitmap = null;
+//        if (!backgroundImageBase64.isEmpty()) {
+//            byte[] decodedString = Base64.decode(backgroundImageBase64, Base64.DEFAULT);
+//            backgroundImageBitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+//        }
+//        if (backgroundImageBitmap != null) {
+//            Drawable backgroundImageDrawable = new BitmapDrawable(getResources(), backgroundImageBitmap);
+//            rootView.setBackground(backgroundImageDrawable);
+//        }
+
         imageView1 = rootView.findViewById(R.id.background_img);
         Button change = rootView.findViewById(R.id.background_change);
         change.setOnClickListener(v -> {
+            //选择本地图片
             Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
             intent.setType("image/*");
             startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
@@ -94,15 +104,21 @@ public class IndividualFragment extends Fragment {
                 try {
                     // 将图片设置为 ImageView 的背景
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(requireActivity().getContentResolver(), imageUri);
+//                    //将 Bitmap 转换为 Base64 字符串并保存到 SharedPreferences 中：（长期背景）
+//                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+//                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+//                    String backgroundImageBase64 = Base64.encodeToString(byteArrayOutputStream.toByteArray(), Base64.DEFAULT);
+//                    SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+//                    SharedPreferences.Editor editor = sharedPreferences.edit();
+//                    editor.putString("backgroundImageBase64", backgroundImageBase64);
+//                    editor.apply();
                     //Drawable drawable = new BitmapDrawable(getResources(), bitmap);
-                    imageView1.setImageBitmap(bitmap);
+                    imageView1.setImageBitmap(bitmap);//设置为背景
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         }
-
-
             // 将选择的图片传递给Activity
             //((BeginActivity) getActivity()).setFragmentBackground(data.getData());
         }

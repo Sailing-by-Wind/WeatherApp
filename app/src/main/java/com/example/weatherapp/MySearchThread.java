@@ -17,7 +17,7 @@ import webjson.JsonRootBean;
 public class MySearchThread implements Runnable{
     private String city_name;
     private String province;
-    private String urlString = "http://v1.yiketianqi.com/api?unescape=1&version=v63&appid=16295769&appsecret=Z6bPelf8&province=";
+    private String urlString = "http://v1.yiketianqi.com/api?unescape=1&version=v63&appid=16295769&appsecret=Z6bPelf8&city=";
     Bundle bundle = new Bundle();
     Handler handler = new Handler();
     public MySearchThread(String province,String city_name){
@@ -30,7 +30,7 @@ public class MySearchThread implements Runnable{
     public void run() {
         JsonRootBean jsonRootBean = null;
         try{
-            urlString = urlString + province + "&city=" + city_name;
+            urlString = urlString + city_name + "&province=" + province;
             URL url = new URL(urlString);
             Log.i("网络链接",urlString);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();

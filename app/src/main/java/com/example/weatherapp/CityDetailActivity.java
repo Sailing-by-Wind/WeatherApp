@@ -143,7 +143,22 @@ public class CityDetailActivity extends AppCompatActivity {
                         titleSubtitleView_sunrise.setTitle("日出");titleSubtitleView_sunrise.setSubtitle(sunrise);
                         titleSubtitleView_sunset.setTitle("日落");titleSubtitleView_sunset.setSubtitle(sunset);
                     }catch (Exception e){
-                        Toast.makeText(CityDetailActivity.this,"查询地区不存在！",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CityDetailActivity.this,"给我干哪来了，这还是国内吗？>_<",Toast.LENGTH_LONG).show();
+                        AlertDialog.Builder builder = new AlertDialog.Builder(CityDetailActivity.this);
+                        builder.setTitle("查询地区不存在！"); // 设置弹窗标题
+                        builder.setMessage("请检查搜索内容后重试"); // 设置弹窗内容
+                        // 设置确认按钮
+                        builder.setPositiveButton("我知道了", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // 点击确认按钮后的操作
+                                finish();
+                            }
+                        });
+                        AlertDialog dialog = builder.create();
+                        dialog.setCancelable(false); // 禁止点击外部区域关闭弹窗
+                        dialog.show();
+                        return;
                     }
                 }
                 super.handleMessage(msg);

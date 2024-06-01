@@ -85,7 +85,11 @@ public class SearchFragment extends Fragment {
         Button changsha_btn = rootView.findViewById(R.id.changsha);
         Button haerbin_btn = rootView.findViewById(R.id.haerbin);
         Button hangzhou_btn = rootView.findViewById(R.id.hangzhou);
+        Button chongqing_btn = rootView.findViewById(R.id.chongqing);
+        Button guiyang_btn = rootView.findViewById(R.id.guiyang);
+        Button kunming_btn = rootView.findViewById(R.id.kunming);
         Button search_btn = rootView.findViewById(R.id.search_button);
+
         EditText search_text = rootView.findViewById(R.id.search_city);
 
         beijing_btn.setOnClickListener(v -> {
@@ -142,6 +146,24 @@ public class SearchFragment extends Fragment {
             detailIntent.putExtra("cityName",cityName);
             startActivity(detailIntent);
         });
+        chongqing_btn.setOnClickListener(v -> {
+            String cityName = "重庆";
+            Intent detailIntent = new Intent(getActivity(),CityDetailActivity.class);
+            detailIntent.putExtra("cityName",cityName);
+            startActivity(detailIntent);
+        });
+        guiyang_btn.setOnClickListener(v -> {
+            String cityName = "贵阳";
+            Intent detailIntent = new Intent(getActivity(),CityDetailActivity.class);
+            detailIntent.putExtra("cityName",cityName);
+            startActivity(detailIntent);
+        });
+        kunming_btn.setOnClickListener(v -> {
+            String cityName = "昆明";
+            Intent detailIntent = new Intent(getActivity(),CityDetailActivity.class);
+            detailIntent.putExtra("cityName",cityName);
+            startActivity(detailIntent);
+        });
         search_btn.setOnClickListener(v -> {
             try{
                 String content = search_text.getText().toString();
@@ -149,8 +171,8 @@ public class SearchFragment extends Fragment {
                 Intent detailIntent = new Intent(getActivity(),CityDetailActivity.class);
                 detailIntent.putExtra("city_name",searchWords[1]);
                 detailIntent.putExtra("province",searchWords[0]);
-                Log.i("省份",searchWords[0]);
-                Log.i("城市",searchWords[1]);
+//                Log.i("省份",searchWords[0]);
+//                Log.i("城市",searchWords[1]);
                 startActivity(detailIntent);
             } catch (Exception e) {
                 Toast.makeText(getContext(),"输入格式有误，请重试！",Toast.LENGTH_SHORT).show();

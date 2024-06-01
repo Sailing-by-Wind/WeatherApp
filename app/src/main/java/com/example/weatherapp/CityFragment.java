@@ -163,9 +163,6 @@ public class CityFragment extends Fragment {
                 super.handleMessage(msg);
             }
         };
-
-
-
         MyWeatherThread myWeatherThread = new MyWeatherThread();
         myWeatherThread.setHandler(handler);
         Thread t1 = new Thread(myWeatherThread);

@@ -11,4 +11,5 @@
     <string name="err_air">未能获取空气质量</string>
     <string name="err_wea">未能获取天气信息</string>
     <string name="hint_24h">逐小时预报（未来24小时）</string>
+    <string name="update_log"></string>
 </resources>
