@@ -1,9 +1,7 @@
 <resources>
-    <string name="app_name">Swufe天气</string>
+    <string name="app_name">Swufe实况天气</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_city_fragment">Hello city fragment</string>
-    <string name="hello_search_fragment">Hello search fragment</string>
-    <string name="hello_individual_fragment">Swufe天气 版权所有\n商务合作请联系\nWeChat：s1206927026\nPhone：18359382733</string>
+    <string name="hello_individual_fragment">Swufe实况天气 版权所有\n商务合作请联系\nWeChat：s1206927026\nPhone：18359382733</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="err_city">未能获取城市</string>

@@ -35,11 +35,12 @@ public class BeginActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         boolean isFirstRun = sharedPreferences.getBoolean("isFirstRun", true);
 
+        //首次启动提示
         if (isFirstRun) {
             // 显示提示框
             AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
             dialogBuilder.setTitle("更新日志");
-            dialogBuilder.setMessage("欢迎使用Swufe天气v1.5.4！本次更新内容如下：\n优化部分页面的横屏展示效果。");
+            dialogBuilder.setMessage("欢迎使用Swufe实况天气v1.5.5！本次更新内容如下：\n1、优化部分页面的横屏展示效果。\n2、优化部分页面的滚动展示效果");
             dialogBuilder.setPositiveButton("我知道了", null);
             dialogBuilder.show();
 
