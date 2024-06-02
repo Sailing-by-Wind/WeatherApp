@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/background1"
     android:orientation="vertical"
-    tools:context=".IndividualFragment">
+    tools:context=".IndividualFragment"
+    android:id="@+id/individualFragmentl">
 
     <!-- TODO: Update blank fragment layout -->
 

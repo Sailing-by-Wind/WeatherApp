@@ -2,6 +2,9 @@ package com.example.weatherapp;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.annotation.SuppressLint;
@@ -18,6 +21,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.Settings;
+import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
@@ -29,26 +36,101 @@ public class BeginActivity extends AppCompatActivity {
 
     private CityFragment cityFragment;
 
+    //private final boolean showAgain = sharedPreferences.getBoolean("doShowAgain", true);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //预加载缓解卡顿
+//        // 创建 Fragment
+//        Fragment fragment = new IndividualFragment();
+//
+//        // 获取 FragmentManager
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//
+//        // 开启事务
+//        FragmentTransaction transaction = fragmentManager.beginTransaction();
+//
+//        // 添加 Fragment 并设置标签
+//        transaction.add(R.id.individualFragmentl, fragment, "fragment_individual_tag");
+//
+//        // 提交事务
+//        transaction.commit();
+//
+//        Fragment individual_fragment = fragmentManager.findFragmentByTag("fragment_individual_tag");
+//
+//        if (individual_fragment != null) {
+//            transaction = fragmentManager.beginTransaction();
+//            transaction.show(individual_fragment);
+//            transaction.commit();
+//        }
+
+
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         boolean isFirstRun = sharedPreferences.getBoolean("isFirstRun", true);
 
         //首次启动提示
         if (isFirstRun) {
             // 显示提示框
-            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-            dialogBuilder.setTitle("更新日志");
-            dialogBuilder.setMessage("欢迎使用Swufe实况天气v1.5.5！本次更新内容如下：\n1、优化部分页面的横屏展示效果。\n2、优化部分页面的滚动展示效果");
-            dialogBuilder.setPositiveButton("我知道了", null);
-            dialogBuilder.show();
+            AlertDialog.Builder dialogFirst = new AlertDialog.Builder(this);
+            dialogFirst.setTitle("Swufe实况天气");
+            dialogFirst.setCancelable(false);
+            dialogFirst.setMessage("欢迎使用Swufe实况天气！这款应用可以为您提供快捷便利的实况天气查询服务。\n" +
+                    "\n" +
+                    "启动应用即可查看您所在城市的最新天气概况。想知道其他城市的天气状况？应用内置强大的搜索功能，让您轻松找到想要的天气信息！\n" +
+                    "\n" +
+                    "应用还提供24小时内的逐小时天气、PM2.5指数、紫外线强度、空气质量、风向风力、日出日落、湿度信息等多项天气特征，帮助您事先做好周全的准备。\n" +
+                    "\n" +
+                    "让我们一起掌握最新鲜的天气动态！");
+            dialogFirst.setPositiveButton("我知道了", null);
+            dialogFirst.show();
+
+            AlertDialog.Builder dialogUpdate = new AlertDialog.Builder(this);
+            dialogUpdate.setCancelable(false);
+            dialogUpdate.setTitle("更新日志");
+            dialogUpdate.setMessage("v1.5.6更新内容：\n1、优化首次启动APP时的提示框效果。\n");
+            dialogUpdate.setPositiveButton("我知道了", null);
+            dialogUpdate.show();
 
             // 将 isFirstRun 标志设置为 false，表示应用不再是首次启动
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putBoolean("isFirstRun", false);
             editor.apply();
+
+
         }
+
+        //不再提示选择框
+//        // 显示提示框
+//        RelativeLayout relativeLayout = new RelativeLayout(this);
+//        relativeLayout.setLayoutParams(new ViewGroup.LayoutParams(
+//                ViewGroup.LayoutParams.MATCH_PARENT,
+//                ViewGroup.LayoutParams.WRAP_CONTENT));
+//
+//// 添加 CheckBox 并设置对齐方式
+//        CheckBox checkBox = new CheckBox(this);
+//        checkBox.setText("不再提示");
+//        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
+//                ViewGroup.LayoutParams.WRAP_CONTENT,
+//                ViewGroup.LayoutParams.WRAP_CONTENT);
+//        params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+//        params.rightMargin = getResources().getDimensionPixelSize(R.dimen.dialog_checkbox_margin);
+//        checkBox.setLayoutParams(params);
+//        relativeLayout.addView(checkBox);
+//
+//        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            boolean showAgain = false;
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                this.showAgain = showAgain;
+//            }
+//        });
+//        if (showAgain) {
+//
+//// 设置自定义视图
+//            dialogUpdate.setView(relativeLayout);
+//            dialogUpdate.show();
+//        }
 
         cityFragment = new CityFragment();
         super.onCreate(savedInstanceState);
