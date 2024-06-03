@@ -1,6 +1,5 @@
 package com.example.weatherapp;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +23,7 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
     @NonNull
     @Override
     public MyListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_detail, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.hours_detail, parent, false);
         return new ViewHolder(view);
     }
 

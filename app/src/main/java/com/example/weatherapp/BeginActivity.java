@@ -75,11 +75,11 @@ public class BeginActivity extends AppCompatActivity {
             AlertDialog.Builder dialogFirst = new AlertDialog.Builder(this);
             dialogFirst.setTitle("Swufe实况天气");
             dialogFirst.setCancelable(false);
-            dialogFirst.setMessage("欢迎使用Swufe实况天气！这款应用可以为您提供快捷便利的实况天气查询服务。\n" +
+            dialogFirst.setMessage("欢迎使用Swufe实况天气！这款应用可以为您提供快捷便利的天气查询服务。\n" +
                     "\n" +
-                    "启动应用即可查看您所在城市的最新天气概况。想知道其他城市的天气状况？应用内置强大的搜索功能，让您轻松找到想要的天气信息！\n" +
+                    "启动应用即可查看您所在城市24小时以及7天之内的天气预报数据。想知道其他城市的天气状况？应用内置强大的搜索功能，让您轻松找到想要的天气信息！\n" +
                     "\n" +
-                    "应用还提供24小时内的逐小时天气、PM2.5指数、紫外线强度、空气质量、风向风力、日出日落、湿度信息等多项天气特征，帮助您事先做好周全的准备。\n" +
+                    "我们还提供PM2.5指数、紫外线强度、空气质量、风向风力、日出日落、湿度信息等多项天气特征，帮助您做好更周全的准备！\n" +
                     "\n" +
                     "让我们一起掌握最新鲜的天气动态！");
             dialogFirst.setPositiveButton("我知道了", null);
@@ -88,7 +88,7 @@ public class BeginActivity extends AppCompatActivity {
             AlertDialog.Builder dialogUpdate = new AlertDialog.Builder(this);
             dialogUpdate.setCancelable(false);
             dialogUpdate.setTitle("更新日志");
-            dialogUpdate.setMessage("v1.5.6更新内容：\n1、优化首次启动APP时的提示框效果。\n");
+            dialogUpdate.setMessage("v1.6.0更新内容：\n\n全新的七日天气预报服务上线啦,帮助您掌握七日之内的天气动态！\n");
             dialogUpdate.setPositiveButton("我知道了", null);
             dialogUpdate.show();
 

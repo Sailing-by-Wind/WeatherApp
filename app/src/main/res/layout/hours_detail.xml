@@ -7,20 +7,23 @@
     android:orientation="vertical">
 
     <TextView
+        android:textStyle="bold"
         android:id="@+id/tem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="温度"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="20dp" />
 
     <TextView
+        android:padding="5dp"
         android:id="@+id/weather"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="天气"
         android:textColor="@color/black"
-        android:textSize="18sp" />
+        android:textStyle="bold"
+        android:textSize="25dp" />
 
     <TextView
         android:id="@+id/wind"

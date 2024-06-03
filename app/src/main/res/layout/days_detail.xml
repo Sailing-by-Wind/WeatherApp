@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:padding="10dp"
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="日期"
+        android:textColor="@color/black"
+        android:textSize="13dp" />
+
+    <TextView
+        android:textStyle="bold"
+        android:padding="5dp"
+        android:id="@+id/day_weather"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="天气"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/tem1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="最低温度"
+        android:textColor="@color/black"
+        android:textSize="16dp" />
+
+    <TextView
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:id="@+id/tem2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="最高温度"
+        android:textSize="16dp"
+        android:textColor="@color/black" />
+
+
+
+</LinearLayout>

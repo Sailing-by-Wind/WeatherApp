@@ -24,13 +24,16 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import webjson.DayData;
 import webjson.Hours;
 import webjson.JsonRootBean;
+import webjson.JsonRootBeanDay;
 
 public class CityDetailActivity extends AppCompatActivity {
 
     private static final String TAG = "CityDetailActivity";
     public JsonRootBean jsonRootBean;
+    public JsonRootBeanDay jsonRootBeanDay;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -161,6 +164,30 @@ public class CityDetailActivity extends AppCompatActivity {
                         return;
                     }
                 }
+
+                if(msg.what == 10){
+                    try{
+                        Bundle bundle1 = new Bundle();
+                        bundle1 = (Bundle) msg.obj;
+                        jsonRootBeanDay = (JsonRootBeanDay) bundle1.getSerializable("inform_day");
+
+                        assert jsonRootBeanDay != null;
+                        List<DayData> dayData = jsonRootBeanDay.getData();
+
+                        RecyclerView recyclerView1 = findViewById(R.id.day);
+                        LinearLayoutManager layoutManager1 = new LinearLayoutManager(CityDetailActivity.this, LinearLayoutManager.VERTICAL, false);
+                        recyclerView1.setLayoutManager(layoutManager1);
+                        MyDayListAdapter myDayListAdapter = new MyDayListAdapter(dayData);
+                        recyclerView1.setAdapter(myDayListAdapter);
+
+                    } catch (Exception e) {
+                        Toast.makeText(CityDetailActivity.this,"给我干哪来了，这还是国内吗？>_<",Toast.LENGTH_LONG).show();
+                        AlertDialog.Builder builder = new AlertDialog.Builder(CityDetailActivity.this);
+                        builder.setTitle("查询地区不存在！"); // 设置弹窗标题
+                        builder.setMessage("请检查搜索内容后重试"); // 设置弹窗内容
+                    }
+                }
+
                 super.handleMessage(msg);
             }
         };
@@ -171,6 +198,11 @@ public class CityDetailActivity extends AppCompatActivity {
             myCityThread.setHandler(handler);
             Thread t2 = new Thread(myCityThread);
             t2.start();
+
+            MyDayThread myDayThread = new MyDayThread();
+            myDayThread.setHandler(handler);
+            Thread t5 = new Thread(myDayThread);
+            t5.start();
         }else {
             Log.i(TAG,city_name);
             Log.i(TAG,province);
@@ -178,6 +210,8 @@ public class CityDetailActivity extends AppCompatActivity {
             mySearchThread.setHandler(handler);
             Thread t3 = new Thread(mySearchThread);
             t3.start();
+
+
         }
 
     }

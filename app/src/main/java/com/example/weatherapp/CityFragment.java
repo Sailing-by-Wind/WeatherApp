@@ -27,8 +27,10 @@ import android.widget.Toast;
 import java.util.List;
 import java.util.Objects;
 
+import webjson.DayData;
 import webjson.Hours;
 import webjson.JsonRootBean;
+import webjson.JsonRootBeanDay;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,6 +48,8 @@ public class CityFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     public JsonRootBean jsonRootBean;
+
+    public JsonRootBeanDay jsonRootBeanDay;
     private SwipeRefreshLayout swipeRefreshLayout;
     private static final String TAG = "CityFragment";
 
@@ -101,9 +105,6 @@ public class CityFragment extends Fragment {
                         String sunset = jsonRootBean.getSunset();
                         List<Hours> hours = jsonRootBean.getHours();
 
-                        for (int i = 0; i < hours.size(); i++) {
-                            Hours h = hours.get(i);
-                        }
                         TextView city_name = getView().findViewById(R.id.cityName);
                         city_name.setText(cityName);
 
@@ -166,6 +167,27 @@ public class CityFragment extends Fragment {
                     }
                 }
 
+                if(msg.what == 10){
+                    try{
+                        Bundle bundle1 = new Bundle();
+                        bundle1 = (Bundle) msg.obj;
+                        jsonRootBeanDay = (JsonRootBeanDay) bundle1.getSerializable("inform_day");
+
+                        assert jsonRootBeanDay != null;
+                        List<DayData> dayData = jsonRootBeanDay.getData();
+
+                        RecyclerView recyclerView1 = getView().findViewById(R.id.day);
+                        LinearLayoutManager layoutManager1 = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+                        recyclerView1.setLayoutManager(layoutManager1);
+                        MyDayListAdapter myDayListAdapter = new MyDayListAdapter(dayData);
+                        recyclerView1.setAdapter(myDayListAdapter);
+
+                    } catch (Exception e) {
+                        Toast.makeText(getContext(), "当前地区不存在！", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+
                 super.handleMessage(msg);
             }
         };
@@ -173,6 +195,11 @@ public class CityFragment extends Fragment {
         myWeatherThread.setHandler(handler);
         Thread t1 = new Thread(myWeatherThread);
         t1.start();
+
+        MyDayThread myDayThread = new MyDayThread();
+        myDayThread.setHandler(handler);
+        Thread t5 = new Thread(myDayThread);
+        t5.start();
 
     }
 
