@@ -41,7 +41,7 @@ public class TitleSubtitleView extends LinearLayout {
     }
 
     // 新增方法，设置主标题和副标题
-    public void setDefaults(String title,String sub_title) {
+    public void setDefaults(String title, String sub_title) {
         titleTextView.setText(title);
         subtitleTextView.setText(sub_title);
     }

@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
@@ -25,19 +26,22 @@ public class MyCityThread implements Runnable {
     private String urlString = "http://v1.yiketianqi.com/api?unescape=1&version=v63&appid=16295769&appsecret=Z6bPelf8&city=";
     Bundle bundle = new Bundle();
     Handler handler = new Handler();
-    public MyCityThread(String cityName){
+
+    public MyCityThread(String cityName) {
         this.cityName = cityName;
     }
-    public void setHandler(Handler handler){
+
+    public void setHandler(Handler handler) {
         this.handler = handler;
     }
+
     @Override
     public void run() {
         JsonRootBean jsonRootBean = null;
-        try{
+        try {
             urlString += cityName;
             URL url = new URL(urlString);
-            Log.i("网络链接",urlString);
+            Log.i("网络链接", urlString);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
 
@@ -71,7 +75,7 @@ public class MyCityThread implements Runnable {
             throw new RuntimeException(e);
         }
 
-        bundle.putSerializable("cityInform",jsonRootBean);
+        bundle.putSerializable("cityInform", jsonRootBean);
         Message msg = handler.obtainMessage(2);
         msg.what = 2;
         msg.obj = bundle;

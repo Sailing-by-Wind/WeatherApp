@@ -11,7 +11,6 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 public class MyPageAdapter extends FragmentStateAdapter {
 
 
-    
     public MyPageAdapter(@NonNull FragmentActivity fa) {
         super(fa);
     }
@@ -19,11 +18,11 @@ public class MyPageAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        if(position==0){
+        if (position == 0) {
             return new CityFragment();
-        }else if(position==1){
+        } else if (position == 1) {
             return new SearchFragment();
-        }else{
+        } else {
             return new IndividualFragment();
         }
     }

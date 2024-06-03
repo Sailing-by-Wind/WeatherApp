@@ -14,25 +14,29 @@ import java.net.URL;
 
 import webjson.JsonRootBean;
 
-public class MySearchThread implements Runnable{
+public class MySearchThread implements Runnable {
     private String city_name;
     private String province;
     private String urlString = "http://v1.yiketianqi.com/api?unescape=1&version=v63&appid=16295769&appsecret=Z6bPelf8&city=";
     Bundle bundle = new Bundle();
     Handler handler = new Handler();
-    public MySearchThread(String province,String city_name){
-        this.province = province;this.city_name = city_name;
+
+    public MySearchThread(String province, String city_name) {
+        this.province = province;
+        this.city_name = city_name;
     }
-    public void setHandler(Handler handler){
+
+    public void setHandler(Handler handler) {
         this.handler = handler;
     }
+
     @Override
     public void run() {
         JsonRootBean jsonRootBean = null;
-        try{
+        try {
             urlString = urlString + city_name + "&province=" + province;
             URL url = new URL(urlString);
-            Log.i("网络链接",urlString);
+            Log.i("网络链接", urlString);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
 
@@ -66,7 +70,7 @@ public class MySearchThread implements Runnable{
             throw new RuntimeException(e);
         }
 
-        bundle.putSerializable("cityInform",jsonRootBean);
+        bundle.putSerializable("cityInform", jsonRootBean);
         Message msg = handler.obtainMessage(2);
         msg.what = 2;
         msg.obj = bundle;

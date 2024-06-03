@@ -95,87 +95,87 @@ public class SearchFragment extends Fragment {
         beijing_btn.setOnClickListener(v -> {
             String cityName = "北京";
             Intent detailIntent = new Intent(getActivity(), CityDetailActivity.class);
-            detailIntent.putExtra("cityName",cityName);
+            detailIntent.putExtra("cityName", cityName);
             startActivity(detailIntent);
         });
         shanghai_btn.setOnClickListener(v -> {
             String cityName = "上海";
             Intent detailIntent = new Intent(getActivity(), CityDetailActivity.class);
-            detailIntent.putExtra("cityName",cityName);
+            detailIntent.putExtra("cityName", cityName);
             startActivity(detailIntent);
         });
         guangzhou_btn.setOnClickListener(v -> {
             String cityName = "广州";
             Intent detailIntent = new Intent(getActivity(), CityDetailActivity.class);
-            detailIntent.putExtra("cityName",cityName);
+            detailIntent.putExtra("cityName", cityName);
             startActivity(detailIntent);
         });
         tianjin_btn.setOnClickListener(v -> {
             String cityName = "天津";
             Intent detailIntent = new Intent(getActivity(), CityDetailActivity.class);
-            detailIntent.putExtra("cityName",cityName);
+            detailIntent.putExtra("cityName", cityName);
             startActivity(detailIntent);
         });
         chengdu_btn.setOnClickListener(v -> {
             String cityName = "成都";
             Intent detailIntent = new Intent(getActivity(), CityDetailActivity.class);
-            detailIntent.putExtra("cityName",cityName);
+            detailIntent.putExtra("cityName", cityName);
             startActivity(detailIntent);
         });
         fuzhou_btn.setOnClickListener(v -> {
             String cityName = "福州";
-            Intent detailIntent = new Intent(getActivity(),CityDetailActivity.class);
-            detailIntent.putExtra("cityName",cityName);
+            Intent detailIntent = new Intent(getActivity(), CityDetailActivity.class);
+            detailIntent.putExtra("cityName", cityName);
             startActivity(detailIntent);
         });
         haerbin_btn.setOnClickListener(v -> {
             String cityName = "哈尔滨";
-            Intent detailIntent = new Intent(getActivity(),CityDetailActivity.class);
-            detailIntent.putExtra("cityName",cityName);
+            Intent detailIntent = new Intent(getActivity(), CityDetailActivity.class);
+            detailIntent.putExtra("cityName", cityName);
             startActivity(detailIntent);
         });
         changsha_btn.setOnClickListener(v -> {
             String cityName = "长沙";
-            Intent detailIntent = new Intent(getActivity(),CityDetailActivity.class);
-            detailIntent.putExtra("cityName",cityName);
+            Intent detailIntent = new Intent(getActivity(), CityDetailActivity.class);
+            detailIntent.putExtra("cityName", cityName);
             startActivity(detailIntent);
         });
         hangzhou_btn.setOnClickListener(v -> {
             String cityName = "杭州";
-            Intent detailIntent = new Intent(getActivity(),CityDetailActivity.class);
-            detailIntent.putExtra("cityName",cityName);
+            Intent detailIntent = new Intent(getActivity(), CityDetailActivity.class);
+            detailIntent.putExtra("cityName", cityName);
             startActivity(detailIntent);
         });
         chongqing_btn.setOnClickListener(v -> {
             String cityName = "重庆";
-            Intent detailIntent = new Intent(getActivity(),CityDetailActivity.class);
-            detailIntent.putExtra("cityName",cityName);
+            Intent detailIntent = new Intent(getActivity(), CityDetailActivity.class);
+            detailIntent.putExtra("cityName", cityName);
             startActivity(detailIntent);
         });
         guiyang_btn.setOnClickListener(v -> {
             String cityName = "贵阳";
-            Intent detailIntent = new Intent(getActivity(),CityDetailActivity.class);
-            detailIntent.putExtra("cityName",cityName);
+            Intent detailIntent = new Intent(getActivity(), CityDetailActivity.class);
+            detailIntent.putExtra("cityName", cityName);
             startActivity(detailIntent);
         });
         kunming_btn.setOnClickListener(v -> {
             String cityName = "昆明";
-            Intent detailIntent = new Intent(getActivity(),CityDetailActivity.class);
-            detailIntent.putExtra("cityName",cityName);
+            Intent detailIntent = new Intent(getActivity(), CityDetailActivity.class);
+            detailIntent.putExtra("cityName", cityName);
             startActivity(detailIntent);
         });
         search_btn.setOnClickListener(v -> {
-            try{
+            try {
                 String content = search_text.getText().toString();
                 String[] searchWords = content.split(" ");
-                Intent detailIntent = new Intent(getActivity(),CityDetailActivity.class);
-                detailIntent.putExtra("city_name",searchWords[1]);
-                detailIntent.putExtra("province",searchWords[0]);
+                Intent detailIntent = new Intent(getActivity(), CityDetailActivity.class);
+                detailIntent.putExtra("city_name", searchWords[1]);
+                detailIntent.putExtra("province", searchWords[0]);
 //                Log.i("省份",searchWords[0]);
 //                Log.i("城市",searchWords[1]);
                 startActivity(detailIntent);
             } catch (Exception e) {
-                Toast.makeText(getContext(),"输入格式有误，请重试！",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "输入格式有误，请重试！", Toast.LENGTH_SHORT).show();
             }
 
         });

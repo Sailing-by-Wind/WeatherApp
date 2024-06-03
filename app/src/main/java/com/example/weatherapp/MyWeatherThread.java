@@ -25,9 +25,9 @@ import java.util.HashMap;
 
 import webjson.JsonRootBean;
 
-public class MyWeatherThread implements Runnable{
-    private static final String appID="16295769";
-    private static final String appSecret="Z6bPelf8";
+public class MyWeatherThread implements Runnable {
+    private static final String appID = "16295769";
+    private static final String appSecret = "Z6bPelf8";
     public String cityName = null;
     Handler handler = new Handler();
     Bundle bundle = new Bundle();
@@ -37,6 +37,7 @@ public class MyWeatherThread implements Runnable{
     public void setHandler(Handler handler) {
         this.handler = handler;
     }
+
     @Override
     public void run() {
         JsonRootBean jsonRootBean = null;

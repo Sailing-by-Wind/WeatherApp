@@ -48,6 +48,7 @@ public class CityFragment extends Fragment {
     public JsonRootBean jsonRootBean;
     private SwipeRefreshLayout swipeRefreshLayout;
     private static final String TAG = "CityFragment";
+
     public CityFragment() {
         // Required empty public constructor
     }
@@ -71,19 +72,18 @@ public class CityFragment extends Fragment {
     }
 
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Handler handler = new Handler(Looper.myLooper()){
+        Handler handler = new Handler(Looper.myLooper()) {
             @SuppressLint("SetTextI18n")
             @Override
             public void handleMessage(@NonNull Message msg) {
-                if(msg.what == 1){
+                if (msg.what == 1) {
                     try {
                         Bundle bundle = new Bundle();
-                        bundle = (Bundle)msg.obj;
+                        bundle = (Bundle) msg.obj;
                         jsonRootBean = (JsonRootBean) bundle.getSerializable("inform");
                         assert jsonRootBean != null;
                         String cityName = jsonRootBean.getCity();
@@ -101,7 +101,7 @@ public class CityFragment extends Fragment {
                         String sunset = jsonRootBean.getSunset();
                         List<Hours> hours = jsonRootBean.getHours();
 
-                        for(int i = 0;i < hours.size();i++){
+                        for (int i = 0; i < hours.size(); i++) {
                             Hours h = hours.get(i);
                         }
                         TextView city_name = getView().findViewById(R.id.cityName);
@@ -112,31 +112,31 @@ public class CityFragment extends Fragment {
 
                         int airNum = Integer.parseInt(cityAir);
                         TextView city_air = getView().findViewById(R.id.airQua);
-                        if(airNum <= 50){
+                        if (airNum <= 50) {
                             city_air.setText("AQI " + cityAir + " 优");
-                            city_air.setTextColor(ContextCompat.getColor(getContext(),R.color.best_air));
-                        }else if(airNum > 50 && airNum <= 100){
+                            city_air.setTextColor(ContextCompat.getColor(getContext(), R.color.best_air));
+                        } else if (airNum > 50 && airNum <= 100) {
                             city_air.setText("AQI " + cityAir + " 良");
-                            city_air.setTextColor(ContextCompat.getColor(getContext(),R.color.good_air));
-                        }else if(airNum > 100 && airNum <= 150){
+                            city_air.setTextColor(ContextCompat.getColor(getContext(), R.color.good_air));
+                        } else if (airNum > 100 && airNum <= 150) {
                             city_air.setText("AQI " + cityAir + " 轻微污染");
-                            city_air.setTextColor(ContextCompat.getColor(getContext(),R.color.bad_air));
-                        }else if(airNum > 150 && airNum <= 200){
+                            city_air.setTextColor(ContextCompat.getColor(getContext(), R.color.bad_air));
+                        } else if (airNum > 150 && airNum <= 200) {
                             city_air.setText("AQI " + cityAir + " 轻度污染");
-                            city_air.setTextColor(ContextCompat.getColor(getContext(),R.color.worse_air));
-                        }else if(airNum > 200 && airNum <= 300){
+                            city_air.setTextColor(ContextCompat.getColor(getContext(), R.color.worse_air));
+                        } else if (airNum > 200 && airNum <= 300) {
                             city_air.setText("AQI " + cityAir + " 中度重污染");
-                            city_air.setTextColor(ContextCompat.getColor(getContext(),R.color.worst_air));
-                        }else{
+                            city_air.setTextColor(ContextCompat.getColor(getContext(), R.color.worst_air));
+                        } else {
                             city_air.setText("AQI " + cityAir + " 重度污染");
-                            city_air.setTextColor(ContextCompat.getColor(getContext(),R.color.worst_air));
+                            city_air.setTextColor(ContextCompat.getColor(getContext(), R.color.worst_air));
                         }
 
                         TextView city_wea = getView().findViewById(R.id.wea);
                         city_wea.setText(cityWea + " 最高" + cityTem1 + "°C 最低" + cityTem2 + "°C");
 
                         RecyclerView recyclerView = getView().findViewById(R.id.hours);
-                        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+                        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
                         recyclerView.setLayoutManager(layoutManager);
                         MyListAdapter myListAdapter = new MyListAdapter(hours);
                         recyclerView.setAdapter(myListAdapter);
@@ -148,15 +148,21 @@ public class CityFragment extends Fragment {
                         TitleSubtitleView titleSubtitleView_sunrise = getView().findViewById(R.id.sunrise);
                         TitleSubtitleView titleSubtitleView_sunset = getView().findViewById(R.id.sunset);
 
-                        titleSubtitleView_uv.setTitle("紫外线");titleSubtitleView_uv.setSubtitle(uv);
-                        titleSubtitleView_humidity.setTitle("湿度");titleSubtitleView_humidity.setSubtitle(humidity);
-                        titleSubtitleView_windDirection.setTitle(windDirection);titleSubtitleView_windDirection.setSubtitle(wind);
-                        titleSubtitleView_pm25.setTitle("PM 2.5");titleSubtitleView_pm25.setSubtitle(pm25);
-                        titleSubtitleView_sunrise.setTitle("日出");titleSubtitleView_sunrise.setSubtitle(sunrise);
-                        titleSubtitleView_sunset.setTitle("日落");titleSubtitleView_sunset.setSubtitle(sunset);
+                        titleSubtitleView_uv.setTitle("紫外线");
+                        titleSubtitleView_uv.setSubtitle(uv);
+                        titleSubtitleView_humidity.setTitle("湿度");
+                        titleSubtitleView_humidity.setSubtitle(humidity);
+                        titleSubtitleView_windDirection.setTitle(windDirection);
+                        titleSubtitleView_windDirection.setSubtitle(wind);
+                        titleSubtitleView_pm25.setTitle("PM 2.5");
+                        titleSubtitleView_pm25.setSubtitle(pm25);
+                        titleSubtitleView_sunrise.setTitle("日出");
+                        titleSubtitleView_sunrise.setSubtitle(sunrise);
+                        titleSubtitleView_sunset.setTitle("日落");
+                        titleSubtitleView_sunset.setSubtitle(sunset);
 
-                    }catch (Exception e){
-                        Toast.makeText(getContext(),"当前地区不存在！",Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+                        Toast.makeText(getContext(), "当前地区不存在！", Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -169,7 +175,6 @@ public class CityFragment extends Fragment {
         t1.start();
 
     }
-
 
 
     @Override
@@ -191,7 +196,7 @@ public class CityFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        return inflater.inflate(R.layout.fragment_city,container,false);
+        return inflater.inflate(R.layout.fragment_city, container, false);
 
 
         //下拉刷新数据

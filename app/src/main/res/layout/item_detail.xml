@@ -7,27 +7,27 @@
     android:orientation="vertical">
 
     <TextView
-        android:textColor="@color/black"
         android:id="@+id/tem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="温度"/>
+        android:text="温度"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
 
     <TextView
-        android:textColor="@color/black"
         android:id="@+id/weather"
-        android:textSize="18sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="天气" />
+        android:text="天气"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
 
     <TextView
-        android:textColor="@color/black"
         android:id="@+id/wind"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="风力" />
+        android:text="风力"
+        android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/time"

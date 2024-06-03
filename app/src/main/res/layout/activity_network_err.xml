@@ -5,25 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".NetworkErrActivity" >
+    tools:context=".NetworkErrActivity">
 
     <TextView
-        android:textColor="@color/black"
         android:id="@+id/network_err"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="网络未连接"
-        android:textSize="50sp"
+        android:layout_marginTop="200sp"
         android:gravity="center"
-        android:layout_marginTop="200sp"/>
+        android:text="网络未连接"
+        android:textColor="@color/black"
+        android:textSize="50sp" />
 
     <TextView
         android:id="@+id/network_tip"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="请检查网络设置后重试"
-        android:textSize="20sp"
-        android:gravity="center"/>
+        android:textSize="20sp" />
 
     <View
         android:layout_width="match_parent"
@@ -32,9 +32,9 @@
 
     <TextView
         android:id="@+id/app_tip"
-        android:layout_marginBottom="40sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="40sp"
         android:gravity="center"
         android:text="Swufe天气"
         android:textSize="10sp" />

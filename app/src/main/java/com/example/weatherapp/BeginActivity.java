@@ -171,7 +171,7 @@ public class BeginActivity extends AppCompatActivity {
             AlertDialog dialog = builder.create();
             dialog.setCancelable(false); // 禁止点击外部区域关闭弹窗
             dialog.show();
-            Toast.makeText(BeginActivity.this,"网络服务错误！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(BeginActivity.this, "网络服务错误！", Toast.LENGTH_SHORT).show();
             return;
         }
         ViewPager2 viewPager = findViewById(R.id.viewPager2);

@@ -24,7 +24,7 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
     @NonNull
     @Override
     public MyListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_detail,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_detail, parent, false);
         return new ViewHolder(view);
     }
 
@@ -43,8 +43,10 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
         //获取数据列表的大小
         return hoursList.size();
     }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tem,weather,wind,time;
+        TextView tem, weather, wind, time;
+
         public ViewHolder(View itemView) {
             super(itemView);
             // 初始化布局中的控件
