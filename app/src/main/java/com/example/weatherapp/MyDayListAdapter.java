@@ -40,7 +40,8 @@ public class MyDayListAdapter extends RecyclerView.Adapter<MyDayListAdapter.View
 
     @Override
     public int getItemCount() {
-        return daysList.size();
+        if(daysList != null) return daysList.size();
+        else return 0;
     }
 
     public class ViewHolder extends  RecyclerView.ViewHolder{

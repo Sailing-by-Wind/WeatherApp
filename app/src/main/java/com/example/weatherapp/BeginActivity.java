@@ -88,7 +88,7 @@ public class BeginActivity extends AppCompatActivity {
             AlertDialog.Builder dialogUpdate = new AlertDialog.Builder(this);
             dialogUpdate.setCancelable(false);
             dialogUpdate.setTitle("更新日志");
-            dialogUpdate.setMessage("v1.6.0更新内容：\n\n全新的七日天气预报服务上线啦,帮助您掌握七日之内的天气动态！\n");
+            dialogUpdate.setMessage("v1.6.1更新内容：\n\n修复了查询城市时无法获取七日预报数据的问题。\n");
             dialogUpdate.setPositiveButton("我知道了", null);
             dialogUpdate.show();
 

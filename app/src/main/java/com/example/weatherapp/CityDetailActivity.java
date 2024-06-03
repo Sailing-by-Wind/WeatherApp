@@ -77,11 +77,13 @@ public class CityDetailActivity extends AppCompatActivity {
         Handler handler = new Handler(Looper.myLooper()){
             @Override
             public void handleMessage(@NonNull Message msg) {
-                if(msg.what == 2){
-                    try{
+
+                try{
+                    if(msg.what == 2){
                         Bundle bundle = new Bundle();
                         bundle = (Bundle) msg.obj;
                         jsonRootBean = (JsonRootBean) bundle.getSerializable("cityInform");
+
 
                         String cityName = jsonRootBean.getCity();
                         String cityTem = jsonRootBean.getTem();
@@ -145,28 +147,11 @@ public class CityDetailActivity extends AppCompatActivity {
                         titleSubtitleView_pm25.setTitle("PM 2.5");titleSubtitleView_pm25.setSubtitle(pm25);
                         titleSubtitleView_sunrise.setTitle("日出");titleSubtitleView_sunrise.setSubtitle(sunrise);
                         titleSubtitleView_sunset.setTitle("日落");titleSubtitleView_sunset.setSubtitle(sunset);
-                    }catch (Exception e){
-                        Toast.makeText(CityDetailActivity.this,"给我干哪来了，这还是国内吗？>_<",Toast.LENGTH_LONG).show();
-                        AlertDialog.Builder builder = new AlertDialog.Builder(CityDetailActivity.this);
-                        builder.setTitle("查询地区不存在！"); // 设置弹窗标题
-                        builder.setMessage("请检查搜索内容后重试"); // 设置弹窗内容
-                        // 设置确认按钮
-                        builder.setPositiveButton("我知道了", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                // 点击确认按钮后的操作
-                                finish();
-                            }
-                        });
-                        AlertDialog dialog = builder.create();
-                        dialog.setCancelable(false); // 禁止点击外部区域关闭弹窗
-                        dialog.show();
-                        return;
-                    }
-                }
 
-                if(msg.what == 10){
-                    try{
+                    }
+
+                    if(msg.what == 10){
+
                         Bundle bundle1 = new Bundle();
                         bundle1 = (Bundle) msg.obj;
                         jsonRootBeanDay = (JsonRootBeanDay) bundle1.getSerializable("inform_day");
@@ -179,15 +164,38 @@ public class CityDetailActivity extends AppCompatActivity {
                         recyclerView1.setLayoutManager(layoutManager1);
                         MyDayListAdapter myDayListAdapter = new MyDayListAdapter(dayData);
                         recyclerView1.setAdapter(myDayListAdapter);
-
-                    } catch (Exception e) {
-                        Toast.makeText(CityDetailActivity.this,"给我干哪来了，这还是国内吗？>_<",Toast.LENGTH_LONG).show();
-                        AlertDialog.Builder builder = new AlertDialog.Builder(CityDetailActivity.this);
-                        builder.setTitle("查询地区不存在！"); // 设置弹窗标题
-                        builder.setMessage("请检查搜索内容后重试"); // 设置弹窗内容
                     }
-                }
 
+                    if(msg.what == 12){
+                        Bundle bundle2 = new Bundle();
+                        bundle2 = (Bundle) msg.obj;
+                        jsonRootBeanDay = (JsonRootBeanDay) bundle2.getSerializable("cityDayInform");
+
+                        List<DayData> dayData = jsonRootBeanDay.getData();
+                        RecyclerView recyclerView1 = findViewById(R.id.day);
+                        LinearLayoutManager layoutManager1 = new LinearLayoutManager(CityDetailActivity.this, LinearLayoutManager.VERTICAL, false);
+                        recyclerView1.setLayoutManager(layoutManager1);
+                        MyDayListAdapter myDayListAdapter = new MyDayListAdapter(dayData);
+                        recyclerView1.setAdapter(myDayListAdapter);
+                    }
+                }catch (Exception e){
+                    Toast.makeText(CityDetailActivity.this,"给我干哪来了，这还是国内吗？>_<",Toast.LENGTH_LONG).show();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(CityDetailActivity.this);
+                    builder.setTitle("查询地区不存在！"); // 设置弹窗标题
+                    builder.setMessage("请检查搜索内容后重试"); // 设置弹窗内容
+                    // 设置确认按钮
+                    builder.setPositiveButton("我知道了", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // 点击确认按钮后的操作
+                            finish();
+                        }
+                    });
+                    AlertDialog dialog = builder.create();
+                    dialog.setCancelable(false); // 禁止点击外部区域关闭弹窗
+                    dialog.show();
+                    return;
+                }
                 super.handleMessage(msg);
             }
         };
@@ -210,7 +218,6 @@ public class CityDetailActivity extends AppCompatActivity {
             mySearchThread.setHandler(handler);
             Thread t3 = new Thread(mySearchThread);
             t3.start();
-
 
         }
 
