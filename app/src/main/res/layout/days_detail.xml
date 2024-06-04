@@ -17,32 +17,31 @@
 
     <TextView
         android:textStyle="bold"
-        android:padding="5dp"
+        android:padding="10dp"
         android:id="@+id/day_weather"
-        android:layout_width="120dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="天气"
         android:textColor="@color/black"
-        android:textSize="15sp" />
+        android:textSize="15dp" />
 
     <TextView
         android:textStyle="bold"
         android:id="@+id/tem1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:paddingRight="10dp"
         android:text="最低温度"
         android:textColor="@color/black"
-        android:textSize="16dp" />
+        android:textSize="15dp" />
 
     <TextView
         android:textStyle="bold"
-        android:padding="10dp"
         android:id="@+id/tem2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="最高温度"
-        android:textSize="16dp"
+        android:textSize="15dp"
         android:textColor="@color/black" />
 
 

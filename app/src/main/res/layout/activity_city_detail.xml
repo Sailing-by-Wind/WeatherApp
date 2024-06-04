@@ -105,7 +105,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:background="@drawable/textview_cs"
                     android:id="@+id/day"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="15dp">
