@@ -14,8 +14,7 @@
         android:id="@+id/background_img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/swufe" />
+        android:scaleType="centerCrop" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -52,7 +51,7 @@
                 android:layout_gravity="center"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
-                android:src="@drawable/logo3" />
+                 />
 
 
             <LinearLayout
@@ -65,8 +64,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
                     android:layout_gravity="center"
-                    android:padding="5dp"
-                    android:src="@drawable/yikeyunlogo" />
+                    android:padding="5dp" />
 
                 <TextView
                     android:layout_width="match_parent"

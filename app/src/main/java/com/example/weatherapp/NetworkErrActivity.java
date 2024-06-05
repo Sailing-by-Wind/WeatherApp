@@ -3,7 +3,6 @@ package com.example.weatherapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 
 public class NetworkErrActivity extends AppCompatActivity {
 
