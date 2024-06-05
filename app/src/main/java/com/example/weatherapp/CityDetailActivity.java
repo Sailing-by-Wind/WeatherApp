@@ -84,7 +84,6 @@ public class CityDetailActivity extends AppCompatActivity {
                         bundle = (Bundle) msg.obj;
                         jsonRootBean = (JsonRootBean) bundle.getSerializable("cityInform");
 
-
                         String cityName = jsonRootBean.getCity();
                         String cityTem = jsonRootBean.getTem();
                         String cityAir = jsonRootBean.getAir();
